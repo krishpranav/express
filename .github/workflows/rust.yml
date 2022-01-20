@@ -22,6 +22,11 @@ jobs:
         rustc --version
         cargo version
 
+    - name: Install Requirements
+      run: |
+        sudo apt-get update
+        sudo apt install libwebkit2gtk-4.0-dev
+
     - name: Build
       run: cargo build
   
@@ -36,7 +41,11 @@ jobs:
         rustc --version
         cargo version
 
-    - name: Build
+    - name: Install Requirements 
       run: |
         brew install rust
+        brew install gtk+3
+  
+    - name: Build
+      run: |
         cargo build
