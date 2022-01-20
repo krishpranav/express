@@ -1,1 +1,5 @@
+# output folder
 /target
+
+# system cache
+.DS_Store
