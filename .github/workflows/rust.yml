@@ -10,11 +10,33 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
 
+  build-linux:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Check version
+      run: |
+        rustc --version
+        cargo version
+
     - name: Build
       run: cargo build
+  
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Check version
+      run: |
+        rustc --version
+        cargo version
+
+    - name: Build
+      run: |
+        brew install rust
+        cargo build
